@@ -11,7 +11,7 @@ public class First10 {
         System.out.println("2. Morse Code");
         System.out.println("3. Caesar Cypher");
         System.out.println("4. Rail Fence Cipher");
-        System.out.println("5. PolyAplphabetic Cipher");
+        System.out.println("5. Custom Combination");
         /*System.out.println("6. ");*/
         int n = in.nextInt();
 
@@ -50,7 +50,15 @@ public class First10 {
                 System.out.println("Key: eg. the number of rows");
                 int ke=in.nextInt();
                 System.out.println("Draw/Write this out in square grids in W's.");
-                System.out.println(rails(ke,s5));    
+                System.out.println(rails(ke,s5));
+
+            case 5:
+                System.out.println("You chose a combination cipher! Sweet! It's Rot+A1Z26");
+                System.out.println("Message: ");
+                String s6=in.next();
+                System.out.println("Keyword: eg.LEMON (Remember the longer the better ");
+                String kw=in.next();
+                //System.out.println(plyA(ke,s5));
                 
             /*default:
                 System.out.println("Invalid Option Selected");
@@ -73,10 +81,10 @@ public class First10 {
         }
 
         String fin="";
-        for(String c:st){
-            fin+=c;
+        for(int i=0;i<hld.size();i++){
+            fin+=s5.charAt(hld.get(i)-1);
         }
-        System.out.println("f: "+fin);
+        //System.out.println("f: "+fin);
         return fin;
     }
 
@@ -98,12 +106,12 @@ public class First10 {
                 }
             }
 
-        System.out.println(i+": "+String.valueOf(hl));
+       // System.out.println(i+": "+String.valueOf(hl));
             int [] n1=new int[hl.size()];
             for(int p=0;p<hl.size();p++){
                 n1[p]=hl.get(p);
             }
-        System.out.println(Arrays.toString(n1));
+        //System.out.println(Arrays.toString(n1));
             return n1;
     }
 
