@@ -16,3 +16,12 @@ What cipher I want to top up
 + MOON RUNES(I like Hobbit)              
 
 I'm welcome to any ideas on how to improve this app. Even better if you got some idea on interesting encoding and want me to include.
+
+List of Cipher:
+#Vigenere Code
+#Morse Code
+#Caesar Cypher
+#Rail Fence Cipher
+#ROT
+
+- steganalysis:https://www.codeproject.com/Tips/635715/Steganography-Simple-Implementation-in-Csharp
