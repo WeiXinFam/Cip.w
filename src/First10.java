@@ -10,8 +10,13 @@ public class First10 {
         System.out.println("1. Vigenere Code");
         System.out.println("2. Morse Code");
         System.out.println("3. Caesar Cypher");
-        System.out.println("4. Rail Fence Cipher");
-        System.out.println("5. Custom Combination");
+        System.out.println("4. ROT");
+        System.out.println("5. Rail Fence Cipher");
+        System.out.println("6. Reverse");
+        System.out.println("7. Reflect");
+        System.out.println("8. Pigeon Cipher");
+        System.out.println("9. Data Shift Cipher");
+        System.out.println("10. Custom Combination");
         /*System.out.println("6. ");*/
         int n = in.nextInt();
 
@@ -26,23 +31,22 @@ public class First10 {
                 System.out.println("Keyword to represent: eg.Lemon");
                 String s2=in.next();
                 System.out.println(Vig(s1,s2));
-                
+                break;
             case 2:
                 System.out.println("You're in the oldest war station!");
                 System.out.println("Message: ");
                 String s3=in.next();
                 char [] arr = s3.toCharArray();
                 System.out.println(Mor(arr));
-                
+                break;
             case 3:
                 System.out.println("You've chosen caesar!");
                 System.out.println("Message: ");
                 String s4=in.next();
-                char [] ar = s4.toCharArray();
                 System.out.println("Shift: eg. 1");
                 int sh=in.nextInt();
-                System.out.println(CS(sh,ar));
-
+                System.out.println(CS(sh,s4));
+                break;
             case 4:
                 System.out.println("the zigzag is at your disposal. Take a paper wth squares out!");
                 System.out.println("Message: ");
@@ -51,13 +55,24 @@ public class First10 {
                 int ke=in.nextInt();
                 System.out.println("Draw/Write this out in square grids in W's.");
                 System.out.println(rails(ke,s5));
-
+                break;
             case 5:
-                System.out.println("You chose a combination cipher! Sweet! It's Rot+A1Z26");
+                System.out.println("You've chosen sth like ceasar. Diff is this shift is upwards!");
                 System.out.println("Message: ");
                 String s6=in.next();
-                System.out.println("Keyword: eg.LEMON (Remember the longer the better ");
-                String kw=in.next();
+                System.out.println("Shift: eg. 1");
+                int shi=in.nextInt();
+                System.out.println(ROT(shi,s6));
+                break;   
+            case 6:
+                System.out.println("Starting Simple?");
+                System.out.println("Message: ");
+                String s7=in.next();
+                while (in.hasNext()){
+                    String s8=in.nextLine();
+                    s7+=s8;
+                }
+                System.out.println(Reversy(s7));
                 //System.out.println(plyA(ke,s5));
                 
             /*default:
@@ -67,6 +82,24 @@ public class First10 {
         }
 
     }
+
+    private static String Reversy(String str) {
+        System.out.println(str);
+        String[] splitStr = str.split("\\s+");
+        System.out.println(Arrays.toString(splitStr));
+
+        for(int i=0;i<splitStr.length;i++){
+            String s=splitStr[i];
+            String r="";
+            for(int j=s.length()-1;j>=0;j--){
+                r+=s.charAt(j);
+            }
+            splitStr[i]=r;
+        }
+
+        return Arrays.toString(splitStr);
+    }
+
 
     private static String rails(int ke, String s5) {
         String [] st = new String[ke];
@@ -116,21 +149,44 @@ public class First10 {
     }
 
     //limited number
-    private static String CS(int sh, char[] ar) {
+    private static String CS(int sh, String ar) {
 
-        char[] letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        //char[] letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
         //https://stackoverflow.com/questions/17575840/better-way-to-generate-array-of-all-letters-in-the-alphabet
-        char[] out=new char[ar.length];
+        char [] ar1 = ar.toCharArray();
+        char[] out=new char[ar1.length];
 
-        for(int i=0;i<ar.length;i++){
-            int ni=revert(ar[i])+sh;
+        for(int i=0;i<ar1.length;i++){
+            int ni=revert(ar1[i])-sh;
+            if(ni<=0){
+                ni=26+(ni);
+            }
             out[i]=find(ni);
         }
+
+
 
         return String.valueOf(out);
 
     }
 
+    private static String ROT(int sh, String ar) {
+
+        //char[] letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        //https://stackoverflow.com/questions/17575840/better-way-to-generate-array-of-all-letters-in-the-alphabet
+        char [] ar1 = ar.toCharArray();
+        char[] out=new char[ar1.length];
+
+        for(int i=0;i<ar1.length;i++){
+            int ni=revert(ar1[i])+sh;
+            out[i]=find(ni);
+        }
+
+
+
+        return String.valueOf(out);
+
+    }
     private static String Mor(char[] s3) {
         List<String> c=new ArrayList<>();
 
@@ -329,7 +385,7 @@ public class First10 {
 
     private static char find(int v) {
 
-        if(v==1 || v==27){
+        if(v==1 || v==27 ){
             return 'A';
         }
         else if(v==2||v==28){
