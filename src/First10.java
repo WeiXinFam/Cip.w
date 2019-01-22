@@ -15,19 +15,28 @@ public class First10 {
         System.out.println("6. Reverse");
         System.out.println("7. Reflect");
         System.out.println("8. Pigeon Cipher");
-        System.out.println("9. Data Shift Cipher");
+        System.out.println("9. Date Shift Cipher");
         System.out.println("10. Custom Combination");
         /*System.out.println("6. ");*/
         int n = in.nextInt();
+        in.nextLine();
+        //https://stackoverflow.com/questions/13102045/scanner-is-skipping-nextline-after-using-next-or-nextfoo
 
+
+        theM(n,in);
         //V
 
 
-        switch(n){
+
+
+    }
+
+    private static String theM(int numberChosen, Scanner in){
+        switch(numberChosen){
             case 1:
                 System.out.println("Sweet! You chose one of the hardest Code!");
                 System.out.println("Message: ");
-                String s1=in.next();
+                String s1=in.nextLine();
                 System.out.println("Keyword to represent: eg.Lemon");
                 String s2=in.next();
                 System.out.println(Vig(s1,s2));
@@ -35,14 +44,14 @@ public class First10 {
             case 2:
                 System.out.println("You're in the oldest war station!");
                 System.out.println("Message: ");
-                String s3=in.next();
+                String s3=in.nextLine();
                 char [] arr = s3.toCharArray();
                 System.out.println(Mor(arr));
                 break;
             case 3:
                 System.out.println("You've chosen caesar!");
                 System.out.println("Message: ");
-                String s4=in.next();
+                String s4=in.nextLine();
                 System.out.println("Shift: eg. 1");
                 int sh=in.nextInt();
                 System.out.println(CS(sh,s4));
@@ -50,7 +59,7 @@ public class First10 {
             case 4:
                 System.out.println("the zigzag is at your disposal. Take a paper wth squares out!");
                 System.out.println("Message: ");
-                String s5=in.next();
+                String s5=in.nextLine();
                 System.out.println("Key: eg. the number of rows");
                 int ke=in.nextInt();
                 System.out.println("Draw/Write this out in square grids in W's.");
@@ -59,34 +68,117 @@ public class First10 {
             case 5:
                 System.out.println("You've chosen sth like ceasar. Diff is this shift is upwards!");
                 System.out.println("Message: ");
-                String s6=in.next();
+                String s6=in.nextLine();
                 System.out.println("Shift: eg. 1");
                 int shi=in.nextInt();
                 System.out.println(ROT(shi,s6));
-                break;   
+                break;
             case 6:
                 System.out.println("Starting Simple?");
                 System.out.println("Message: ");
-                String s7=in.next();
-                while (in.hasNext()){
-                    String s8=in.nextLine();
-                    s7+=s8;
-                }
+                String s7=in.nextLine();
                 System.out.println(Reversy(s7));
-                //System.out.println(plyA(ke,s5));
-                
-            /*default:
-                System.out.println("Invalid Option Selected");
-                */
+                break;
+            case 7:
+                System.out.println("Starting Simple?");
+                System.out.println("Message: ");
+                String s8=in.nextLine();
+                System.out.println(Reflecty(s8));
+                break;
+            case 9:
+                System.out.println("Well this is sth like ROT but you're shifting one by one?");
+                System.out.println("Message: ");
+                String s9=in.nextLine();
+                System.out.println("What's ur fav combination of number that matches the length of message?");
+                int dats = in.nextInt();
+                System.out.println(shiftR(s9,dats));
+                break;
+            case 10:
+                System.out.println("You're choosing a combination! Thinking of sth tricky aren't cha?");
+                System.out.println("First off! Enter the number of cipher you want to combine.");
+                int numToC = in.nextInt();
+                int [] toC = new int[numToC];
+                int c=1;
+                while(c<numToC+1) {
+                    System.out.println("Now, type in the "+ c + " cipher you want. Due to testing stage the string will not be overlay automatically, you have to do it by manual.");
+                    int one = in.nextInt();
+                    in.nextLine();
+                    theM(one,in);
+                    c++;
+                }
+
+
+        }
+        return null;
+    }
+
+    private static String shiftR(String s9, int dats) {
+        char[] arr=s9.toCharArray();
+        List<String> ar = new ArrayList<>();
+        for(char c:arr){
+            ar.add(c+"");
+        }
+
+        String[] ars=new String[ar.size()];
+        for(int i=0;i<ar.size();i++){
+            ars[i]=ar.get(i);
 
         }
 
+        int[] ari=new int[arr.length];
+
+        while (dats>10){
+            for(int i=ari.length-1;i>=0;i--){
+                ari[i]=dats%10;
+                dats=dats/10;
+            }
+        }
+
+        for(int i=0;i<ar.size();i++){
+            String s = ROT(ari[i],ar.get(i));
+            ars[i]=s;
+
+        }
+
+        String fin="";
+        for(String st:ars){
+            fin+=st;
+        }
+        return fin;
+    }
+
+    private static String ROT(int sh, String ar) {
+
+        //char[] letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        //https://stackoverflow.com/questions/17575840/better-way-to-generate-array-of-all-letters-in-the-alphabet
+        char [] ar1 = ar.toCharArray();
+        char[] out=new char[ar1.length];
+
+        for(int i=0;i<ar1.length;i++){
+            int ni=revert(ar1[i])+sh;
+            out[i]=find(ni);
+        }
+
+
+
+        return String.valueOf(out);
+
+    }
+
+    private static String Reflecty(String s8) {
+        char [] arr = s8.toCharArray();
+
+        for (int i=0;i<arr.length;i++){
+            arr[i]=find(revert(arr[i])+13);
+        }
+
+        return String.valueOf(arr);
     }
 
     private static String Reversy(String str) {
-        System.out.println(str);
+        //System.out.println(str);
         String[] splitStr = str.split("\\s+");
-        System.out.println(Arrays.toString(splitStr));
+        //System.out.println(Arrays.toString(splitStr));
 
         for(int i=0;i<splitStr.length;i++){
             String s=splitStr[i];
@@ -122,7 +214,6 @@ public class First10 {
     }
 
     private static int[] makeL(int i, int length, int key) {
-
 
         List<Integer> hl = new ArrayList<Integer>();
         int c=i+1;
@@ -170,23 +261,7 @@ public class First10 {
 
     }
 
-    private static String ROT(int sh, String ar) {
 
-        //char[] letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-        //https://stackoverflow.com/questions/17575840/better-way-to-generate-array-of-all-letters-in-the-alphabet
-        char [] ar1 = ar.toCharArray();
-        char[] out=new char[ar1.length];
-
-        for(int i=0;i<ar1.length;i++){
-            int ni=revert(ar1[i])+sh;
-            out[i]=find(ni);
-        }
-
-
-
-        return String.valueOf(out);
-
-    }
     private static String Mor(char[] s3) {
         List<String> c=new ArrayList<>();
 
@@ -376,10 +451,10 @@ public class First10 {
             int colu = revert(messageC.charAt(i));
             int rows=revert(keywordR.charAt(i));
             c[i]=m[rows-1][colu-1];
-            System.out.println("col: "+colu+", row: "+rows+", the letter: "+c[i]);
+            //System.out.println("col: "+colu+", row: "+rows+", the letter: "+c[i]);
         }
 
-        System.out.println(Arrays.toString(c));
+        //System.out.println(Arrays.toString(c));
         return String.valueOf(c);
     }
 
