@@ -31,7 +31,7 @@ public class First10 {
 
     }
 
-    private static String theM(int numberChosen, Scanner in){
+    private static void theM(int numberChosen, Scanner in){
         switch(numberChosen){
             case 1:
                 System.out.println("Sweet! You chose one of the hardest Code!");
@@ -97,7 +97,6 @@ public class First10 {
                 System.out.println("You're choosing a combination! Thinking of sth tricky aren't cha?");
                 System.out.println("First off! Enter the number of cipher you want to combine.");
                 int numToC = in.nextInt();
-                int [] toC = new int[numToC];
                 int c=1;
                 while(c<numToC+1) {
                     System.out.println("Now, type in the "+ c + " cipher you want. Due to testing stage the string will not be overlay automatically, you have to do it by manual.");
@@ -109,7 +108,6 @@ public class First10 {
 
 
         }
-        return null;
     }
 
     private static String shiftR(String s9, int dats) {
@@ -140,11 +138,11 @@ public class First10 {
 
         }
 
-        String fin="";
+        StringBuilder fin= new StringBuilder();
         for(String st:ars){
-            fin+=st;
+            fin.append(st);
         }
-        return fin;
+        return fin.toString();
     }
 
     private static String ROT(int sh, String ar) {
@@ -182,11 +180,11 @@ public class First10 {
 
         for(int i=0;i<splitStr.length;i++){
             String s=splitStr[i];
-            String r="";
+            StringBuilder r= new StringBuilder();
             for(int j=s.length()-1;j>=0;j--){
-                r+=s.charAt(j);
+                r.append(s.charAt(j));
             }
-            splitStr[i]=r;
+            splitStr[i]= r.toString();
         }
 
         return Arrays.toString(splitStr);
@@ -194,9 +192,7 @@ public class First10 {
 
 
     private static String rails(int ke, String s5) {
-        String [] st = new String[ke];
-        Arrays.fill(st," ");
-        List<Integer> hld = new ArrayList<Integer>();
+        List<Integer> hld = new ArrayList<>();
 
         for(int i=0;i<ke;i++){
             int [] temp = makeL(i,s5.length(),ke);
@@ -205,17 +201,17 @@ public class First10 {
             }
         }
 
-        String fin="";
-        for(int i=0;i<hld.size();i++){
-            fin+=s5.charAt(hld.get(i)-1);
+        StringBuilder fin= new StringBuilder();
+        for (Integer aHld : hld) {
+            fin.append(s5.charAt(aHld - 1));
         }
         //System.out.println("f: "+fin);
-        return fin;
+        return fin.toString();
     }
 
     private static int[] makeL(int i, int length, int key) {
 
-        List<Integer> hl = new ArrayList<Integer>();
+        List<Integer> hl = new ArrayList<>();
         int c=i+1;
         int a=i+1;
             for(int k=0;k<length;k++){
@@ -265,112 +261,112 @@ public class First10 {
     private static String Mor(char[] s3) {
         List<String> c=new ArrayList<>();
 
-        for(int i=0;i<s3.length;i++){
-            switch (s3[i]){
+        for (char aS3 : s3) {
+            switch (aS3) {
                 case 'A':
-                    c.add("\u00B7"+"- ");
+                    c.add("\u00B7" + "- ");
                     break;
                 case 'B':
-                    c.add("-"+"\u00B7"+"\u00B7"+"\u00B7"+" ");
+                    c.add("-" + "\u00B7" + "\u00B7" + "\u00B7" + " ");
                     break;
                 case 'C':
-                    c.add("-"+"\u00B7"+"-"+"\u00B7"+" ");
+                    c.add("-" + "\u00B7" + "-" + "\u00B7" + " ");
                     break;
                 case 'D':
-                    c.add("-"+"\u00B7"+"\u00B7"+" ");
+                    c.add("-" + "\u00B7" + "\u00B7" + " ");
                     break;
                 case 'E':
-                    c.add("\u00B7"+" ");
+                    c.add("\u00B7" + " ");
                     break;
                 case 'F':
-                    c.add("\u00B7"+"\u00B7"+"-"+"\u00B7"+" ");
+                    c.add("\u00B7" + "\u00B7" + "-" + "\u00B7" + " ");
                     break;
                 case 'G':
-                    c.add("-"+"-"+"\u00B7"+" ");
+                    c.add("-" + "-" + "\u00B7" + " ");
                     break;
                 case 'H':
-                    c.add("\u00B7"+"\u00B7"+"\u00B7"+"\u00B7");
+                    c.add("\u00B7" + "\u00B7" + "\u00B7" + "\u00B7");
                     break;
                 case 'I':
-                    c.add("\u00B7"+"\u00B7");
+                    c.add("\u00B7" + "\u00B7");
                     break;
                 case 'J':
-                    c.add("\u00B7"+"--- ");
+                    c.add("\u00B7" + "--- ");
                     break;
                 case 'K':
-                    c.add("-"+"\u00B7"+"- ");
+                    c.add("-" + "\u00B7" + "- ");
                     break;
                 case 'L':
-                    c.add("\u00B7"+"-"+"\u00B7"+"\u00B7"+" ");
+                    c.add("\u00B7" + "-" + "\u00B7" + "\u00B7" + " ");
                     break;
                 case 'M':
                     c.add("-- ");
                     break;
                 case 'N':
-                    c.add("-"+"\u00B7"+" ");
+                    c.add("-" + "\u00B7" + " ");
                     break;
                 case 'O':
                     c.add("--- ");
                     break;
                 case 'P':
-                    c.add("\u00B7"+"--"+"\u00B7"+" ");
+                    c.add("\u00B7" + "--" + "\u00B7" + " ");
                     break;
                 case 'Q':
-                    c.add("--"+"\u00B7"+"- ");
+                    c.add("--" + "\u00B7" + "- ");
                     break;
                 case 'R':
-                    c.add("\u00B7"+"-"+"\u00B7"+" ");
+                    c.add("\u00B7" + "-" + "\u00B7" + " ");
                     break;
                 case 'S':
-                    c.add("\u00B7"+"\u00B7"+"\u00B7"+" ");
+                    c.add("\u00B7" + "\u00B7" + "\u00B7" + " ");
                     break;
                 case 'T':
                     c.add("- ");
                     break;
                 case 'U':
-                    c.add("\u00B7"+"\u00B7"+"- ");
+                    c.add("\u00B7" + "\u00B7" + "- ");
                     break;
                 case 'V':
-                    c.add("\u00B7"+"\u00B7"+"\u00B7"+"- ");
+                    c.add("\u00B7" + "\u00B7" + "\u00B7" + "- ");
                     break;
                 case 'W':
-                    c.add("\u00B7"+"-- ");
+                    c.add("\u00B7" + "-- ");
                     break;
                 case 'X':
-                    c.add("-"+"\u00B7"+"\u00B7"+"- ");
+                    c.add("-" + "\u00B7" + "\u00B7" + "- ");
                     break;
                 case 'Y':
-                    c.add("-"+"\u00B7"+"-- ");
+                    c.add("-" + "\u00B7" + "-- ");
                     break;
                 case 'Z':
-                    c.add("--"+"\u00B7"+"\u00B7"+" ");
+                    c.add("--" + "\u00B7" + "\u00B7" + " ");
                     break;
                 case 1:
-                    c.add("\u00B7"+"---- ");
+                    c.add("\u00B7" + "---- ");
                     break;
                 case 2:
-                    c.add("\u00B7"+"\u00B7"+"--- ");
+                    c.add("\u00B7" + "\u00B7" + "--- ");
                     break;
                 case 3:
-                    c.add("\u00B7"+"\u00B7"+"\u00B7"+"-- ");
+                    c.add("\u00B7" + "\u00B7" + "\u00B7" + "-- ");
                     break;
                 case 4:
-                    c.add("\u00B7"+"\u00B7"+"\u00B7"+"\u00B7"+"- ");
+                    c.add("\u00B7" + "\u00B7" + "\u00B7" + "\u00B7" + "- ");
                     break;
                 case 5:
-                    c.add("\u00B7"+"\u00B7"+"\u00B7"+"\u00B7"+"\u00B7"+" ");
+                    c.add("\u00B7" + "\u00B7" + "\u00B7" + "\u00B7" + "\u00B7" + " ");
                     break;
                 case 6:
-                    c.add("-"+"\u00B7"+"\u00B7"+"\u00B7"+"\u00B7"+" ");
+                    c.add("-" + "\u00B7" + "\u00B7" + "\u00B7" + "\u00B7" + " ");
                     break;
                 case 7:
-                    c.add("--"+"\u00B7"+"\u00B7"+"\u00B7"+" ");
+                    c.add("--" + "\u00B7" + "\u00B7" + "\u00B7" + " ");
                     break;
                 case 8:
-                    c.add("---"+"\u00B7"+"\u00B7"+" ");
+                    c.add("---" + "\u00B7" + "\u00B7" + " ");
                     break;
                 case 9:
-                    c.add("----"+"\u00B7"+" ");
+                    c.add("----" + "\u00B7" + " ");
                     break;
                 case 0:
                     c.add("----- ");
