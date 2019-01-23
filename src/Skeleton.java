@@ -2,7 +2,7 @@ import java.util.*;
 
 //https://cryptii.com/
 
-public class First10 {
+public class Skeleton {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
