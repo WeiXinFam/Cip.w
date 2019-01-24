@@ -14,7 +14,7 @@ public class Skeleton {
         System.out.println("5. Rail Fence Cipher");
         System.out.println("6. Reverse");
         System.out.println("7. Reflect");
-        System.out.println("8. Pigeon Cipher");
+        System.out.println("8. Enigma Code");
         System.out.println("9. Date Shift Cipher");
         System.out.println("10. Custom Combination");
         /*System.out.println("6. ");*/
@@ -85,6 +85,12 @@ public class Skeleton {
                 String s8=in.nextLine();
                 System.out.println(Reflecty(s8));
                 break;
+            case 8:
+                System.out.println("Starting Simple?");
+                System.out.println("Message: ");
+                String s9=in.nextLine();
+                System.out.println(Enig(s9));
+                break;
             case 9:
                 System.out.println("Well this is sth like ROT but you're shifting one by one?");
                 System.out.println("Message: ");
@@ -108,6 +114,11 @@ public class Skeleton {
 
 
         }
+    }
+
+    private static String Enig(String s9) {
+        //step 1 reflect
+        //3 motors turning
     }
 
     private static String shiftR(String s9, int dats) {
