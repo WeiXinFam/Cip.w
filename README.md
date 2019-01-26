@@ -28,4 +28,4 @@ List of Cipher:
 
 - steganalysis:https://www.codeproject.com/Tips/635715/Steganography-Simple-Implementation-in-Csharp         
 - enigma code:http://practicalcryptography.com/ciphers/enigma-cipher/
-
+- final list to add: https://listverse.com/2012/03/13/10-codes-and-ciphers/
