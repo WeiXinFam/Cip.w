@@ -94,10 +94,10 @@ public class Skeleton {
             case 9:
                 System.out.println("Well this is sth like ROT but you're shifting one by one?");
                 System.out.println("Message: ");
-                String s9=in.nextLine();
+                String s10=in.nextLine();
                 System.out.println("What's ur fav combination of number that matches the length of message?");
                 int dats = in.nextInt();
-                System.out.println(shiftR(s9,dats));
+                System.out.println(shiftR(s10,dats));
                 break;
             case 10:
                 System.out.println("You're choosing a combination! Thinking of sth tricky aren't cha?");
@@ -119,6 +119,7 @@ public class Skeleton {
     private static String Enig(String s9) {
         //step 1 reflect
         //3 motors turning
+        return s9;
     }
 
     private static String shiftR(String s9, int dats) {
