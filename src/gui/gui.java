@@ -35,7 +35,7 @@ public class gui extends Application {
         Stage stage1 = new Stage();
         stage1.setTitle("WELCOME");
 
-        Image a = new Image(String.valueOf(gui.class.getResource("Cipher.png")));
+        Image a = new Image(String.valueOf(gui.class.getResource("Cip.png")));
         ImageView view = new ImageView();
         view.setImage(a);
        // view.setOpacity(0.3);

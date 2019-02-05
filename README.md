@@ -16,11 +16,11 @@ What cipher I want to top up
 
 I'm welcome to any ideas on how to improve this app. Even better if you got some idea on interesting encoding and want me to include.
 
-List of Cipher:   
+List of Cip:
 :key:Vigenere Code    
 :key:Morse Code         
 :key:Caesar Cypher         
-:key:Rail Fence Cipher        
+:key:Rail Fence Cip
 :key:ROT           
 :key:Combination          
 :key:Reflect        

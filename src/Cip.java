@@ -2,7 +2,7 @@ import java.util.*;
 
 //https://cryptii.com/
 
-public class Skeleton {
+public class Cip {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
@@ -11,11 +11,11 @@ public class Skeleton {
         System.out.println("2. Morse Code");
         System.out.println("3. Caesar Cypher");
         System.out.println("4. ROT");
-        System.out.println("5. Rail Fence Cipher");
+        System.out.println("5. Rail Fence Cip");
         System.out.println("6. Reverse");
         System.out.println("7. Reflect");
         System.out.println("8. Enigma Code");
-        System.out.println("9. Date Shift Cipher");
+        System.out.println("9. Date Shift Cip");
         System.out.println("10. Custom Combination");
         /*System.out.println("6. ");*/
         int n = in.nextInt();
@@ -466,7 +466,7 @@ public class Skeleton {
         return String.valueOf(c);
     }
 
-    private static char find(int v) {
+    public static char find(int v) {
 
         if(v==1 || v==27 ){
             return 'A';
@@ -545,10 +545,10 @@ public class Skeleton {
         else if(v==26||v==52){
             return 'Z';
         }
-        return'l';
+        return'0';
     }
 
-    private static int revert(char c) {
+    public static int revert(char c) {
 
         switch (c) {
             case 'A':
